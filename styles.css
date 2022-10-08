@@ -1,0 +1,722 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Helvetica, sans-serif;
+  }
+  
+  body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* background: linear-gradient(215deg, rgba(22,53,78,1) 62%, rgba(90,147,191,1) 62%); */
+    background: linear-gradient(215deg, rgba(22,53,78,1) 57%, rgba(90,147,191,1) 57%);
+    position: relative;
+  }
+
+  button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1{
+    font-family: Arial;
+  }
+
+  section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    scroll-snap-align: start;
+    position: relative;
+  }
+
+  .two{
+    height: auto;
+    margin-bottom: 20px;
+    /* border: 2px solid pink; */
+  }
+  
+  .container{
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  nav{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+
+  }
+
+  .navdiv{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    background-color: rgba(90,147,191, 0.7);
+    display: none;
+    z-index: 2;
+  }
+  
+  nav a, footer p{
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+
+  .menu-btn{
+    position: absolute;
+    top: 3%;
+    right: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    border: 3px solid white;
+    z-index: 3;
+  }
+
+  .menu-btn__burger{
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+  }
+
+  .menu-btn__burger::before, 
+  .menu-btn__burger::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+  }
+
+  .menu-btn__burger::before{
+    transform: translateY(-16px);
+  }
+
+  .menu-btn__burger::after{
+    transform: translateY(16px);
+  }
+
+  .menu-btn.open .menu-btn__burger{
+    transform: translateX(-50px);
+    background: transparent;
+
+  }
+
+  .menu-btn.open .menu-btn__burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+
+  .menu-btn.open .menu-btn__burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+
+  h1, .nameForm{
+    font-size: 72px;
+  }
+
+  .topOfText{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .middle{
+    height: 80vh;
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -41%);
+    color: white;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: space-around;
+  }
+
+  .text, .textInput{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid red; */
+  }
+
+  .text{
+    padding-left: 5px;
+  }
+
+
+  .first{
+    width: 50%;
+  }
+
+  .second{
+    margin-top: 15px;
+    position: relative;
+    height: 110px;
+  }
+
+  .button, .sendEmail{
+      background-color:rgba(22,53,78);
+      color: white;
+      border: 5px solid white;
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      height: 60%;
+      width: 30%;
+      font-size: 27px;
+    }
+
+    .button{
+      height: 100%;
+    }
+
+    .emailButton{
+      height: 20%;
+    }
+
+    p{
+      font-size: 35px;
+    }
+
+    .imageOfMe{
+      position: relative;
+      height: 50%;
+      width: 80%;
+      align-self: center;
+    }
+
+    .imageMe{
+      height: 90%;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      right:10%;
+
+    }
+
+    .whiteSquare{
+      border: 10px solid white;
+      height: 90%;
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 70%;
+      z-index: -1;
+    }
+
+    /* Projects */
+
+    h2{
+      font-size: 50px;
+    }
+
+    .projectsAndHobbies{
+      color: white;
+      width: 83%;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      justify-content: space-around;
+      align-items: center;
+      margin: 10% 0%;
+    }
+
+    .projects, .hobbies{
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    .projectsBoxes, .hobbiesBoxes{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 70px;
+    }
+
+    .projectBox1, .projectBox2, .projectBox3, .hobbiesBox1, .hobbiesBox2{
+      /* height: 700px; */
+      position: relative;
+      border: 5px solid white;
+      border-radius: 20px;
+      padding: 7%;
+      box-shadow: 15px 15px 15px 0px rgb(0 0 0 / 30%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    h4{
+      font-size: 30px;
+      opacity: 0.7;
+      /* border: 2px solid blue; */
+      /* width: 50%; */
+    }
+
+    /* .projectBox1:hover, .projectBox2:hover, .projectBox3:hover, .hobbiesBox1:hover, .hobbiesBox2:hover, .hobbiesBox3:hover{
+      box-shadow: 15px 15px 15px 0px rgb(0 0 0 / 30%);
+    } */
+
+    h3{
+      font-size: 50px;
+    }
+
+    .langauges, .stuff, .icons, .designedBy{
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      align-items: flex-start;
+      /* border: 2px solid red; */
+    }
+
+    .icons{
+      height: 50%;
+    }
+
+    i{
+      height: 100%;
+    }
+
+
+    .contact{
+      height: 80vh;
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -44%);
+      color: white;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .form{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      Width: 100%;
+      gap: 40px;
+    }
+
+    .name{
+      display: flex;
+    }
+
+
+    input{
+      background-color:white;
+      color: white;
+      border: 5px solid rgba(22,53,78,1);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      height: 20%;
+      width: 100%;
+      opacity: 0.7;
+    }
+
+    .message{
+      background-color: white;
+      height:70%;
+      width: 100%;
+      opacity: 0.7;
+    }
+
+    label{
+      font-size: 40px;
+    }
+
+    .textInput input{
+      height:100%;
+    }
+
+    .form input{
+      color: black;
+      font-size: 35px;
+    }
+
+    .nameForm{
+      display: flex;
+      flex-direction: column;
+      height: 24%;
+      /* border: 2px solid pink; */
+    }
+
+    footer{
+      /* border: 2px solid red; */
+      height: 10%;
+    }
+
+    .emailButton input{
+      opacity: 1;
+      color: white;
+    }
+
+    .designedme{
+      color: rgba(22,53,78);
+      padding-left: 7px;
+      opacity: 1;
+    }
+
+    .rest{
+      width: 100%;
+      height: 100%;
+    }
+
+    .rest input, .rest label{
+      height: 13%;
+      margin:25px 0px;
+    }
+
+    .rest .message{
+      height: 40%;
+    }
+
+    .experience{
+      height: 85vh;
+      position: absolute;
+      top: 41%;
+      left: 50%;
+      transform: translate(-50%, -41%);
+      color: white;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .sidebuttons{
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .sidebuttons button{
+      width: 100%;
+      color: white;
+      padding: 1.1rem 0rem;
+      height: 100%;
+      width: 30%;
+      font-size: 35px;
+    }
+
+    .innercontent{
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+
+    .vodaphone, .modulr, .codeninjas{
+      display: none;
+    }
+
+    #vodaphone, #modulr, #codeninjas{
+      width:100%;
+      border-bottom: 7px solid rgb(255,255,255,0.5);
+    }
+
+    #cex{
+      width: 100%;
+      border-bottom: 7px solid rgb(255,255,255);
+    }
+
+    .added{
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+    }
+
+    .work{
+      margin-bottom: 20px;
+    }
+
+    .date{
+      margin-bottom: 20px;
+    }
+
+    .cex p, .vodaphone p, .codeninjas p, .modulr p{
+      padding-bottom: 20px;
+    }
+
+    .cex, .vodaphone, .codeninjas, .modulr{
+      border: 5px solid white;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .projectBox1 i, .projectBox2 i , .projectBox3 i , .hobbiesBox1 i , .hobbiesBox2 i {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    /* Tablet View */
+
+    @media (min-width: 768px) and (max-width: 1000px)
+    {
+      
+    }
+
+
+    /* Desktop */
+
+      @media (min-width: 1000px)
+      {
+        .middle{
+          height: 80vh;
+          gap: 40px;
+          justify-content: center;
+          align-items: flex-end;
+          margin-top: 50px;
+        }
+
+        .topOfText, .twobio, .second{
+          width: 60%;
+        }
+
+        .second button{
+          height: 7vh;
+          width: 15vh;
+          font-size: 15px;
+          padding: 0;
+        }
+
+        .imageOfMe{
+          position: absolute;
+          left: 0;
+          width: 60%;
+          height: 90%;
+        }
+
+        h1{
+          font-size: 35px;
+          align-self: flex-start;
+        }
+
+
+        .whiteSquare{
+          width: 45%;
+          height: 60vh;
+          left: 4%;
+          bottom: 7%;
+        }
+        .imageMe{
+          right: 45%;
+          height: 60vh;
+          top:0;
+        }
+
+        .menu-btn{
+          width: 37px;
+          height: 37px;
+          right: 5%;
+          top: 5%;
+        }
+
+        .menu-btn__burger{
+          width: 25px;
+          height: 2.5px;
+          
+        }
+      
+        .menu-btn__burger::before, 
+        .menu-btn__burger::after{
+          width: 25px;
+          height: 2.5px;
+        }
+
+        .menu-btn__burger::after{
+          transform: translateY(-8px);
+        }
+
+        .menu-btn__burger::before{
+          transform: translateY(8px);
+        }
+
+        .projectsAndHobbies{
+          margin: 4% 0%;
+        }
+
+        h2{
+          font-size: 25px;
+        }
+
+        h3{
+          font-size:20px;
+        }
+
+        h4{
+          font-size:10px;
+        }
+
+        p{
+          font-size: 15px;
+        }
+
+        .projectsBoxes a, .hobbiesBoxes a{
+          width: 30%;
+          padding: 3%;
+        }
+
+        .projectsBoxes, .hobbiesBoxes{
+          flex-direction: row;
+          gap: 50px;
+        }
+
+        .projectsBoxes i, .hobbiesBoxes i{
+          font-size: 2rem !important;
+        }
+
+        .experience{
+          gap: 35px;
+        }
+
+        .sidebuttons{
+          width: 40%;
+        }
+        .sidebuttons button{
+          font-size: 20px;
+        }
+
+      .contact{
+        top: 47%;
+        width: 60%;
+        gap: 40px;
+      }
+
+      .form{
+        height: 100%;
+        gap: 0;
+      }
+
+      label {
+        font-size: 20px;
+      }
+
+      .textInput input{
+        height: 20px;
+      }
+
+      .rest input{
+        height: 50px;
+        margin:10px 0px;
+      }
+
+      .emailButton{
+      margin-top: 30px;
+      }
+
+      .nameForm{
+        height: 15%;
+      }
+
+      .text{
+        height: 10%;
+      }
+
+      .rest{
+        height: 90%;
+      }
+
+      .rest .message{
+        height: 35%;
+      }
+
+      .form .sendEmail{
+        height: 7vh;
+        width: 15vh;
+        font-size: 15px;
+        padding: 0;
+      }
+
+      footer .icons i{
+        font-size: 1.5rem!important;
+      }
+
+      .icons{
+        margin-bottom: 10px;
+      }
+
+      footer{
+        padding-bottom: 20px;
+      }
+      .button, .sendEmail{
+        border: 3px solid white;
+      }
+      .innercontent{
+        width: 95%;
+      }
+      input{
+        border: 3px solid rgba(22,53,78,1);
+      }
+
+      .menu-btn{
+        display: none;
+      }
+
+      .navdiv{
+        display: block;
+        width: 40%;
+        height: 10%;
+        right: 0%;
+        background-color: transparent;
+      }
+
+      nav{
+        position: relative;
+        flex-direction: row;
+        top: 65%;
+        left: 0%;
+        gap: 80px;
+      }
+
+      .navdiv a{
+        font-size: 15px;
+      }
+
+    }
+
+  
+
+
